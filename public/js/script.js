@@ -1,27 +1,13 @@
-const answers_no = {
-    english: [
-      "No, Shrija 😔",
-  "Are you sure, Shrija?",
-  "Really sure, Shrija? 🥺",
-  "Like… super duper sure, Shrija?",
-  "Think once more, Shrija 💭",
-  "Shrija believes in second chances, you know ✨",
-  "Why so cold, Shrija ❄️",
-  "Can we talk it out, Shrija? 💬",
-  "I won’t ask again, Shrija… maybe 🙈",
-  "Oof, that hurt a little, Shrija 💔",
-  "Okay now you’re being mean, Shrija 😤",
-  "Why are you doing this to me, Shrija 😢",
-  "Please give me a chance, Shrija 🫶",
-  "I’m begging you, Shrija 😭",
-  "Please stop, Shrija 🥹",
-  "Okay… let’s start over, Shrija 💖"
-    ]
+let answers_no = { english: [] };
+let answers_yes = { english: "Yes 💖" };
+let confirmationMessages = [];
+let loveEmojis = [];
+let sadEmojis = [];
+let happyEmojis = [];
+let bannerImages = {
+    no: "public/images/no.gif",
+    yes: "public/images/yes.gif"
 };
-
-answers_yes = {
-    "english": "Yes 💖"
-}
 
 let language = "english"; // Default language is English
 const no_button = document.getElementById('no-button');
@@ -29,13 +15,66 @@ const yes_button = document.getElementById('yes-button');
 let i = 1;
 let size = 50;
 let clicks = 0;
+let confirmationIndex = 0;
+
+const emojiContainer = document.getElementById('emoji-container');
+
+let emojiInterval;
+
+// Fetch strings from JSON file
+fetch('./public/text/strings.json')
+    .then(response => response.json())
+    .then(data => {
+        document.title = data.title;
+        document.getElementById('question-heading').innerText = data.question_heading;
+        no_button.innerText = data.no_button;
+        yes_button.innerText = data.yes_button;
+        document.getElementById('success-message').innerText = data.success_message;
+        const creator = document.querySelector('.creator');
+        creator.innerText = data.creator_text;
+        creator.href = data.creator_link;
+
+        answers_no.english = data.answers_no;
+        answers_yes.english = data.yes_button;
+        confirmationMessages = data.confirmation_messages;
+        loveEmojis = data.emojis.love;
+        sadEmojis = data.emojis.sad;
+        happyEmojis = data.emojis.happy;
+        bannerImages.no = data.images.banner_no;
+        bannerImages.yes = data.images.banner_yes;
+
+        startFloatingEmojis(loveEmojis);
+    })
+    .catch(error => console.error('Error loading strings:', error));
+
+function startFloatingEmojis(emojis) {
+    clearInterval(emojiInterval);
+    emojiContainer.innerHTML = '';
+    
+    emojiInterval = setInterval(() => {
+        const emoji = document.createElement('div');
+        emoji.classList.add('floating-emoji');
+        emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        
+        emoji.style.left = Math.random() * 100 + 'vw';
+        emoji.style.animationDuration = Math.random() * 3 + 2 + 's';
+        emoji.style.fontSize = Math.random() * 20 + 20 + 'px';
+        
+        emojiContainer.appendChild(emoji);
+        
+        setTimeout(() => {
+            emoji.remove();
+        }, 5000);
+    }, 100);
+}
 
 no_button.addEventListener('click', () => {
     // Change banner source
     let banner = document.getElementById('banner');
     if (clicks === 0) {
-        banner.src = "public/images/no.gif";
+        banner.src = bannerImages.no;
         refreshBanner();
+        startFloatingEmojis(sadEmojis);
     }
     clicks++;
     // increase button height and width gradually to 250px
@@ -45,6 +84,8 @@ no_button.addEventListener('click', () => {
     yes_button.style.height = `${size}px`;
     yes_button.style.width = `${size}px`;
     yes_button.style.fontSize = `${size * 0.3}px`;
+    yes_button.innerHTML = answers_yes[language];
+    confirmationIndex = 0;
     let total = answers_no[language].length;
     // change button text
     if (i < total - 1) {
@@ -59,20 +100,30 @@ no_button.addEventListener('click', () => {
         yes_button.style.width = "50px";
         yes_button.style.fontSize = "1.2rem";
         size = 50;
+        confirmationIndex = 0;
     }
 });
 
 yes_button.addEventListener('click', () => {
-    // change banner gif path
-    let banner = document.getElementById('banner');
-    banner.src = "public/images/yes.gif";
-    refreshBanner();
-    // hide buttons div
-    let buttons = document.getElementsByClassName('buttons')[0];
-    buttons.style.display = "none";
-    // show message div
-    let message = document.getElementsByClassName('message')[0];
-    message.style.display = "block";
+    if (confirmationIndex < confirmationMessages.length) {
+        yes_button.innerHTML = confirmationMessages[confirmationIndex];
+        yes_button.style.width = 'auto';
+        yes_button.style.minWidth = `${size}px`;
+        yes_button.style.fontSize = `${Math.max(20, size * 0.12)}px`;
+        confirmationIndex++;
+    } else {
+        // change banner gif path
+        let banner = document.getElementById('banner');
+        banner.src = bannerImages.yes;
+        refreshBanner();
+        startFloatingEmojis(happyEmojis);
+        // hide buttons div
+        let buttons = document.getElementsByClassName('buttons')[0];
+        buttons.style.display = "none";
+        // show message div
+        let message = document.getElementsByClassName('message')[0];
+        message.style.display = "block";
+    }
 });
 
 function refreshBanner() {
