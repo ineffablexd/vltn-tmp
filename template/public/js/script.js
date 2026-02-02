@@ -18,18 +18,41 @@ let clicks = 0;
 let confirmationIndex = 0;
 
 const emojiContainer = document.getElementById('emoji-container');
-
 let emojiInterval;
+
+/* 🔧 Replace {name} everywhere */
+function applyName(value, name) {
+    if (typeof value === "string") {
+        return value.replace(/{name}/g, name);
+    }
+    if (Array.isArray(value)) {
+        return value.map(v => applyName(v, name));
+    }
+    if (typeof value === "object" && value !== null) {
+        return Object.fromEntries(
+            Object.entries(value).map(([k, v]) => [k, applyName(v, name)])
+        );
+    }
+    return value;
+}
 
 // Fetch strings from JSON file
 fetch('./public/text/strings.json')
     .then(response => response.json())
-    .then(data => {
+    .then(rawData => {
+
+        // 👑 Single source of truth
+        const NAME = rawData.name || "";
+
+        // Apply {name} replacements
+        const data = applyName(rawData, NAME);
+
         document.title = data.title;
         document.getElementById('question-heading').innerText = data.question_heading;
         no_button.innerText = data.no_button;
         yes_button.innerText = data.yes_button;
         document.getElementById('success-message').innerText = data.success_message;
+
         const creator = document.querySelector('.creator');
         creator.innerText = data.creator_text;
         creator.href = data.creator_link;
@@ -37,25 +60,30 @@ fetch('./public/text/strings.json')
         answers_no.english = data.answers_no;
         answers_yes.english = data.yes_button;
         confirmationMessages = data.confirmation_messages;
+
         loveEmojis = data.emojis.love;
         sadEmojis = data.emojis.sad;
         happyEmojis = data.emojis.happy;
+
         if (data.images) {
-            if (data.images.banner_no && data.images.banner_no.length > 0) {
-                bannerImages.no = data.images.banner_no[Math.floor(Math.random() * data.images.banner_no.length)];
+            if (data.images.banner_no?.length) {
+                bannerImages.no =
+                    data.images.banner_no[Math.floor(Math.random() * data.images.banner_no.length)];
             }
-            if (data.images.banner_yes && data.images.banner_yes.length > 0) {
-                bannerImages.yes = data.images.banner_yes[Math.floor(Math.random() * data.images.banner_yes.length)];
+            if (data.images.banner_yes?.length) {
+                bannerImages.yes =
+                    data.images.banner_yes[Math.floor(Math.random() * data.images.banner_yes.length)];
             }
-            if (data.images.banner_mid && data.images.banner_mid.length > 0) {
-                document.getElementById('banner').src = data.images.banner_mid[Math.floor(Math.random() * data.images.banner_mid.length)];
+            if (data.images.banner_mid?.length) {
+                document.getElementById('banner').src =
+                    data.images.banner_mid[Math.floor(Math.random() * data.images.banner_mid.length)];
             }
         }
 
-        // Preload the selected images so they are ready when buttons are clicked
-        [bannerImages.no, bannerImages.yes].forEach(imageSrc => {
+        // Preload images
+        [bannerImages.no, bannerImages.yes].forEach(src => {
             const img = new Image();
-            img.src = imageSrc;
+            img.src = src;
         });
 
         startFloatingEmojis(loveEmojis);
@@ -65,55 +93,56 @@ fetch('./public/text/strings.json')
 function startFloatingEmojis(emojis) {
     clearInterval(emojiInterval);
     emojiContainer.innerHTML = '';
-    
+
     emojiInterval = setInterval(() => {
         const emoji = document.createElement('div');
         emoji.classList.add('floating-emoji');
         emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        
+
         emoji.style.left = Math.random() * 100 + 'vw';
         emoji.style.animationDuration = Math.random() * 3 + 2 + 's';
         emoji.style.fontSize = Math.random() * 20 + 20 + 'px';
-        
+
         emojiContainer.appendChild(emoji);
-        
-        setTimeout(() => {
-            emoji.remove();
-        }, 5000);
+
+        setTimeout(() => emoji.remove(), 5000);
     }, 100);
 }
 
 no_button.addEventListener('click', () => {
-    // Change banner source
-    let banner = document.getElementById('banner');
+    const banner = document.getElementById('banner');
+
     if (clicks === 0) {
         banner.src = bannerImages.no;
         refreshBanner();
         startFloatingEmojis(sadEmojis);
     }
     clicks++;
-    // increase button height and width gradually to 250px
-    const sizes = [40, 50, 30, 35, 45]
-    const random = Math.floor(Math.random() * sizes.length);
-    size += sizes[random]
+
+    const sizes = [40, 50, 30, 35, 45];
+    size += sizes[Math.floor(Math.random() * sizes.length)];
+
     yes_button.style.height = `${size}px`;
     yes_button.style.width = `${size}px`;
     yes_button.style.fontSize = `${size * 0.3}px`;
     yes_button.innerHTML = answers_yes[language];
+
     confirmationIndex = 0;
-    let total = answers_no[language].length;
-    // change button text
+
+    const total = answers_no[language].length;
+
     if (i < total - 1) {
-        no_button.innerHTML = answers_no[language][i];
-        i++;
-    } else if (i === total - 1) {
+        no_button.innerHTML = answers_no[language][i++];
+    } else {
         alert(answers_no[language][i]);
         i = 1;
         no_button.innerHTML = answers_no[language][0];
+
         yes_button.innerHTML = answers_yes[language];
         yes_button.style.height = "50px";
         yes_button.style.width = "50px";
         yes_button.style.fontSize = "1.2rem";
+
         size = 50;
         confirmationIndex = 0;
     }
@@ -121,30 +150,24 @@ no_button.addEventListener('click', () => {
 
 yes_button.addEventListener('click', () => {
     if (confirmationIndex < confirmationMessages.length) {
-        yes_button.innerHTML = confirmationMessages[confirmationIndex];
+        yes_button.innerHTML = confirmationMessages[confirmationIndex++];
         yes_button.style.width = 'auto';
         yes_button.style.minWidth = `${size}px`;
         yes_button.style.fontSize = `${Math.max(20, size * 0.12)}px`;
-        confirmationIndex++;
     } else {
-        // change banner gif path
-        let banner = document.getElementById('banner');
+        const banner = document.getElementById('banner');
         banner.src = bannerImages.yes;
         refreshBanner();
         startFloatingEmojis(happyEmojis);
-        // hide buttons div
-        let buttons = document.getElementsByClassName('buttons')[0];
-        buttons.style.display = "none";
-        // show message div
-        let message = document.getElementsByClassName('message')[0];
-        message.style.display = "block";
+
+        document.querySelector('.buttons').style.display = "none";
+        document.querySelector('.message').style.display = "block";
     }
 });
 
 function refreshBanner() {
-    // Reload banner gif to force load  
-    let banner = document.getElementById('banner');
-    let src = banner.src;
+    const banner = document.getElementById('banner');
+    const src = banner.src;
     banner.src = '';
     banner.src = src;
 }
