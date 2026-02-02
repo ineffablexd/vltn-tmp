@@ -40,9 +40,23 @@ fetch('./public/text/strings.json')
         loveEmojis = data.emojis.love;
         sadEmojis = data.emojis.sad;
         happyEmojis = data.emojis.happy;
-        bannerImages.no = data.images.banner_no[Math.floor(Math.random() * data.images.banner_no.length)];
-        bannerImages.yes = data.images.banner_yes[Math.floor(Math.random() * data.images.banner_yes.length)];
-        document.getElementById('banner').src = data.images.banner_mid[Math.floor(Math.random() * data.images.banner_mid.length)];
+        if (data.images) {
+            if (data.images.banner_no && data.images.banner_no.length > 0) {
+                bannerImages.no = data.images.banner_no[Math.floor(Math.random() * data.images.banner_no.length)];
+            }
+            if (data.images.banner_yes && data.images.banner_yes.length > 0) {
+                bannerImages.yes = data.images.banner_yes[Math.floor(Math.random() * data.images.banner_yes.length)];
+            }
+            if (data.images.banner_mid && data.images.banner_mid.length > 0) {
+                document.getElementById('banner').src = data.images.banner_mid[Math.floor(Math.random() * data.images.banner_mid.length)];
+            }
+        }
+
+        // Preload the selected images so they are ready when buttons are clicked
+        [bannerImages.no, bannerImages.yes].forEach(imageSrc => {
+            const img = new Image();
+            img.src = imageSrc;
+        });
 
         startFloatingEmojis(loveEmojis);
     })
