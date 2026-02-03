@@ -1,0 +1,91 @@
+{
+  "title": "booboo",
+  "question_heading": "booboo, Will you be my valentine? 🌹",
+  "no_button": "No",
+  "yes_button": "Yes 💖",
+  "success_message": "i love tits",
+  "creator_text": "Created with Valentinelinks;)",
+  "creator_link": "https://github.com/ineffablexd",
+  "answers_no": [
+    "noonoooooo boobooo",
+    "Are you sure, booboo?",
+    "Really sure, booboo? 🥺",
+    "Like… super duper sure, booboo?",
+    "Think once more, booboo 💭",
+    "booboo believes in second chances, you know ✨",
+    "Why so cold, booboo ❄️",
+    "Can we talk it out, booboo? 💬",
+    "I won’t ask again, booboo… maybe 🙈",
+    "Oof, that hurt a little, booboo 💔",
+    "Okay now you’re being mean, booboo 😤",
+    "Why are you doing this to me, booboo 😢",
+    "Please give me a chance, booboo 🫶",
+    "I’m begging you, booboo 😭",
+    "Please stop, booboo 🥹",
+    "Okay… let’s start over, booboo 💖"
+  ],
+  "confirmation_messages": [
+    "Pakka na? 🤨",
+    "Are you sure u love me? 🥺",
+    "Lock kar diya jaye? 🔒",
+    "Pinky promise? 🤙"
+  ],
+  "emojis": {
+    "love": [
+      "❤️",
+      "💖",
+      "💕",
+      "🌹",
+      "🥰",
+      "😍",
+      "💌",
+      "💓"
+    ],
+    "sad": [
+      "😢",
+      "😭",
+      "💔",
+      "🥺",
+      "😞",
+      "😣",
+      "😓",
+      "😿"
+    ],
+    "happy": [
+      "❤️",
+      "😘",
+      "💋",
+      "💑",
+      "💏",
+      "😻",
+      "💍",
+      "💒"
+    ]
+  },
+  "images": {
+    "banner_no": [
+      "public/images/no2.gif",
+      "public/images/no3.gif",
+      "public/images/no4.gif",
+      "public/images/no5.gif",
+      "public/images/no6.gif",
+      "public/images/no7.gif",
+      "public/images/no8.gif",
+      "public/images/no9.gif"
+    ],
+    "banner_yes": [
+      "public/images/yes.gif",
+      "public/images/yes2.gif",
+      "public/images/yes3.gif",
+      "public/images/yes4.gif",
+      "public/images/yes5.gif",
+      "public/images/yes6.gif",
+      "public/images/yes7.gif",
+      "public/images/yes8.gif",
+      "public/images/yes9.gif"
+    ],
+    "banner_mid": [
+      "public/images/mid.gif"
+    ]
+  }
+}
