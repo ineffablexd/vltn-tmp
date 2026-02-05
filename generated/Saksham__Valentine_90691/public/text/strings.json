@@ -1,0 +1,99 @@
+{
+  "title": "Will you be my friend??",
+  "question_heading": "Saksham , Will you be my valentine? 🌹",
+  "no_button": "No",
+  "yes_button": "Yes 💖",
+  "success_message": "I promise to prove u made the right choice😊",
+  "creator_text": "Created with Valentinelinks;)",
+  "creator_link": "https://github.com/ineffablexd",
+  "answers_no": [
+    "🥺😢",
+    "Are you sure, Saksham ?",
+    "Really sure, Saksham ? 🥺",
+    "Like… super duper sure, Saksham ?",
+    "Think once more, Saksham  💭",
+    "Saksham  believes in second chances, you know ✨",
+    "Why so cold, Saksham  ❄️",
+    "Can we talk it out, Saksham ? 💬",
+    "I won’t ask again, Saksham … maybe 🙈",
+    "Oof, that hurt a little, Saksham  💔",
+    "Okay now you’re being mean, Saksham  😤",
+    "Why are you doing this to me, Saksham  😢",
+    "Please give me a chance, Saksham  🫶",
+    "I’m begging you, Saksham  😭",
+    "Please stop, Saksham  🥹",
+    "Okay… let’s start over, Saksham  💖"
+  ],
+  "confirmation_messages": [
+    "Thank you 🥰",
+    "Are you sure u love me? 🥺",
+    "Lock kar diya jaye? 🔒",
+    "Pinky promise? 🤙"
+  ],
+  "emojis": {
+    "love": [
+      "❤️",
+      "💖",
+      "💕",
+      "🌹",
+      "🥰",
+      "😍",
+      "💌",
+      "💓"
+    ],
+    "sad": [
+      "😢",
+      "😭",
+      "💔",
+      "🥺",
+      "😞",
+      "😣",
+      "😓",
+      "😿"
+    ],
+    "happy": [
+      "❤️",
+      "😘",
+      "💋",
+      "💑",
+      "💏",
+      "😻",
+      "💍",
+      "💒"
+    ]
+  },
+  "images": {
+    "banner_no": [
+      "public/images/no2.gif",
+      "public/images/no3.gif",
+      "public/images/no4.gif",
+      "public/images/no5.gif",
+      "public/images/no6.gif",
+      "public/images/no7.gif",
+      "public/images/no8.gif",
+      "public/images/no9.gif"
+    ],
+    "banner_yes": [
+      "public/images/yes.gif",
+      "public/images/yes2.gif",
+      "public/images/yes3.gif",
+      "public/images/yes4.gif",
+      "public/images/yes5.gif",
+      "public/images/yes6.gif",
+      "public/images/yes7.gif",
+      "public/images/yes8.gif",
+      "public/images/yes9.gif"
+    ],
+    "banner_mid": [
+      "public/images/mid.gif",
+      "public/images/mid2.gif",
+      "public/images/mid3.gif",
+      "public/images/mid4.gif",
+      "public/images/mid5.gif",
+      "public/images/mid6.gif",
+      "public/images/mid7.gif",
+      "public/images/mid8.gif",
+      "public/images/mid9.gif"
+    ]
+  }
+}
