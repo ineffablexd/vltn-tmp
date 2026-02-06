@@ -1,0 +1,99 @@
+{
+  "title": "Will you be my Valentine ",
+  "question_heading": "Mannu, Will you be my valentine? 🌹",
+  "no_button": "No",
+  "yes_button": "Yes 💖",
+  "success_message": "Love you so much 😘",
+  "creator_text": "Created with Valentinelinks;)",
+  "creator_link": "https://github.com/ineffablexd",
+  "answers_no": [
+    "No, Mannu 😔",
+    "Are you sure, Mannu?",
+    "Really sure, Mannu? 🥺",
+    "Like… super duper sure, Mannu?",
+    "Think once more, Mannu 💭",
+    "Mannu believes in second chances, you know ✨",
+    "Why so cold, Mannu ❄️",
+    "Can we talk it out, Mannu? 💬",
+    "I won’t ask again, Mannu… maybe 🙈",
+    "Oof, that hurt a little, Mannu 💔",
+    "Okay now you’re being mean, Mannu 😤",
+    "Why are you doing this to me, Mannu 😢",
+    "Please give me a chance, Mannu 🫶",
+    "I’m begging you, Mannu 😭",
+    "Please stop, Mannu 🥹",
+    "Okay… let’s start over, Mannu 💖"
+  ],
+  "confirmation_messages": [
+    "Pakka na? 🤨",
+    "Are you sure u love me? 🥺",
+    "Lock kar diya jaye? 🔒",
+    "Pinky promise? 🤙"
+  ],
+  "emojis": {
+    "love": [
+      "❤️",
+      "💖",
+      "💕",
+      "🌹",
+      "🥰",
+      "😍",
+      "💌",
+      "💓"
+    ],
+    "sad": [
+      "😢",
+      "😭",
+      "💔",
+      "🥺",
+      "😞",
+      "😣",
+      "😓",
+      "😿"
+    ],
+    "happy": [
+      "❤️",
+      "😘",
+      "💋",
+      "💑",
+      "💏",
+      "😻",
+      "💍",
+      "💒"
+    ]
+  },
+  "images": {
+    "banner_no": [
+      "public/images/no2.gif",
+      "public/images/no3.gif",
+      "public/images/no4.gif",
+      "public/images/no5.gif",
+      "public/images/no6.gif",
+      "public/images/no7.gif",
+      "public/images/no8.gif",
+      "public/images/no9.gif"
+    ],
+    "banner_yes": [
+      "public/images/yes.gif",
+      "public/images/yes2.gif",
+      "public/images/yes3.gif",
+      "public/images/yes4.gif",
+      "public/images/yes5.gif",
+      "public/images/yes6.gif",
+      "public/images/yes7.gif",
+      "public/images/yes8.gif",
+      "public/images/yes9.gif"
+    ],
+    "banner_mid": [
+      "public/images/mid.gif",
+      "public/images/mid2.gif",
+      "public/images/mid3.gif",
+      "public/images/mid4.gif",
+      "public/images/mid5.gif",
+      "public/images/mid6.gif",
+      "public/images/mid7.gif",
+      "public/images/mid8.gif",
+      "public/images/mid9.gif"
+    ]
+  }
+}
