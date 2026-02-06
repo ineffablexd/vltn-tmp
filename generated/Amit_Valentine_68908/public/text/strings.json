@@ -1,0 +1,76 @@
+{
+  "title": "my precious baby",
+  "question_heading": "Amit, Will you be my valentine? 🌹",
+  "no_button": "No",
+  "yes_button": "Yes 💖",
+  "success_message": "yayyyieee! thankyou my sweet lil angel! till every valentine of our life, i’ll take care of you, love you gently, and keep you safe in my heart always.\r\ni love you so much ❤️ ",
+  "creator_text": "Created with Valentinelinks;)",
+  "creator_link": "https://github.com/ineffablexd",
+  "answers_no": [
+    "no? but i was excited for us 🥺",
+    "are you sure, puchhu? 💔",
+    "that made my heart a lil sad 😔",
+    "okay, i’ll still wait for you 🎀",
+    "think once more pati parmeshwar ji 😤",
+    "Amit believes in second chances, you know ✨",
+    "Why so cold, Amit ❄️",
+    "Can we talk it out, Amit? 💬",
+    "I won’t ask again, Amit… maybe 🙈",
+    "Oof, that hurt a little, Amit 💔",
+    "Okay now you’re being mean, Amit 😤",
+    "Why are you doing this to me, Amit 😢",
+    "Please give me a chance, Amit 🫶",
+    "I’m begging you, Amit 😭",
+    "Please stop, Amit 🥹",
+    "Okay… let’s start over, Amit 💖"
+  ],
+  "confirmation_messages": [
+    "pakka na? 🥺",
+    "my cutu gonna come to me? 🥹💕",
+    "Lock kar diya jaye? 🔒",
+    "Pinky promise? 🤙"
+  ],
+  "emojis": {
+    "love": [
+      "❤️",
+      "💖",
+      "💕",
+      "🌹",
+      "🥰",
+      "😍",
+      "💌",
+      "💓"
+    ],
+    "sad": [
+      "😢",
+      "😭",
+      "💔",
+      "🥺",
+      "😞",
+      "😣",
+      "😓",
+      "😿"
+    ],
+    "happy": [
+      "❤️",
+      "😘",
+      "💋",
+      "💑",
+      "💏",
+      "😻",
+      "💍",
+      "💒"
+    ]
+  },
+  "images": {
+    "banner_no": [
+      "public/images/no.gif"
+    ],
+    "banner_yes": [
+      "public/images/yes.gif"
+    ],
+    "banner_mid": [
+      "public/images/mid.gif"
+    ]
+  }
+}
