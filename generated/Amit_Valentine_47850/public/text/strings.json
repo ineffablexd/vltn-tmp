@@ -1,0 +1,64 @@
+{
+  "title": "my sweet angel 🫶",
+  "question_heading": "Amit, Will you be my valentine? 🌹",
+  "no_button": "No",
+  "yes_button": "Yes 💖",
+  "success_message": "yayyieeee, thankyou so much my lil baby! \r\nthis valentine, lemme take care of you, love you gently,\r\nand keep you safe in my heart.. always. \r\ni love you so much ❤️",
+  "creator_text": "Created with Valentinelinks;)",
+  "creator_link": "https://github.com/ineffablexd",
+  "answers_no": [
+    "NO (but i was excited for us 😔) ",
+    "NOO (please puchhu 🥺) ",
+    "NOOO (that made my heart a lil sad 😔) ",
+    "just NO (okay, but i’ll still wait for you 🥺) ",
+    "i said NO (we can talk it out, think again patidev 💔) "
+  ],
+  "confirmation_messages": [
+    "pakka na? 🥹",
+    "my cutu gonna come to me? 😭",
+    "you choosing me? 🥺"
+  ],
+  "emojis": {
+    "love": [
+      "❤️",
+      "💖",
+      "💕",
+      "🌹",
+      "🥰",
+      "😍",
+      "💌",
+      "💓"
+    ],
+    "sad": [
+      "😢",
+      "😭",
+      "💔",
+      "🥺",
+      "😞",
+      "😣",
+      "😓",
+      "😿"
+    ],
+    "happy": [
+      "❤️",
+      "😘",
+      "💋",
+      "💑",
+      "💏",
+      "😻",
+      "💍",
+      "💒"
+    ]
+  },
+  "images": {
+    "banner_no": [
+      "public/images/no.gif"
+    ],
+    "banner_yes": [
+      "public/images/yes.gif"
+    ],
+    "banner_mid": [
+      "public/images/mid.gif"
+    ]
+  }
+}
